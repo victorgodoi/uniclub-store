@@ -1,12 +1,18 @@
 import styled from 'styled-components'
+import iconCarrinho from '../images/icon-carrinho.svg'
+import iconFavoritos from '../images/icon-favoritos.svg'
+import iconPerfil from '../images/icon-perfil.svg'
 
 const Header = styled.header`
     height: 130px;
     width: 100%;
-    background-color: #cacaca;
+    /* background-color: #cacaca; */
     display: flex;
     align-items: center;
     justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
 `
 
 const Content = styled.div`
@@ -15,7 +21,7 @@ const Content = styled.div`
     padding: 0 10px;
     display: flex;
     justify-content: space-between;
-    div {
+    > div {
         display: flex;
         align-items: center;
     }
@@ -48,8 +54,29 @@ const Menu = styled.ul`
 
 `
 
+const AccountMenu = styled.div`
+    display: flex;
+    gap: 55px;
 
+    > div {
+        position: relative;
+    }
+`
 
+const Circle = styled.div`
+    background-color: black;
+    width: 17px;
+    height: 17px;
+    border-radius: 10px;
+    color: white;
+    font-size: 9px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: -10px;
+    left: 10px;
+`
 
 const Component = () => {
     return (
@@ -68,7 +95,17 @@ const Component = () => {
                         </Menu>
                     </nav>
                 </div>
-                <div>PEDIR AJUDA PQ OS ICONES NAO SAO APENAS FOTOS!!!</div>
+                <AccountMenu>
+                    <img src={iconPerfil} />
+                    <div>
+                        <img src={iconFavoritos} />
+                        <Circle>12</Circle>
+                    </div>
+                    <div>
+                        <img src={iconCarrinho} />
+                        <Circle>3</Circle>
+                    </div>
+                </AccountMenu>
             </Content>
         </Header>
     )
