@@ -3,30 +3,29 @@ import carrinho from '../images/carrinho.svg'
 import cifrao from '../images/cifrao.svg'
 import escudo from '../images/escudo.svg'
 import medalha from '../images/medalha.svg'
+import Content from './Content'
 
-const Box = styled.div`
-    display: flex;
-    justify-content: center;
+const Box = styled(Content)`
     padding-top: 170px;
-    max-width: 1300px;
     //tirar depois
     margin-bottom: 150px;
 
     > div {
-        gap: 109px;
-        height: 220px;
+        gap: 110px;
     }
 `
-const Title = styled.h1`
+const Title = styled.p`
     color: #222;
     font-size: 24px;
     font-style: normal;
     font-weight: 600;
     line-height: 119.682%;
     text-transform: capitalize;
+    margin-top: 30px;
+    margin-bottom: 20px;
 `
 
-const SubTitle = styled.h2`
+const SubTitle = styled.p`
     color: #747474;
     font-family: Jost;
     font-size: 16px;
@@ -37,30 +36,28 @@ const SubTitle = styled.h2`
     text-transform: capitalize;
 `
 
-
-
 const Component = () => {
     return (
         <Box>
             <div>
-                <img src={carrinho} width='34px' height='34px' />
-                <h1>Free Delivery</h1>
-                <h2>Lorem ipsum dolor sit amet, consectetur adipi elit. ipsum dolor sit amet.</h2>
+                <img src={carrinho} width='35px' height='35px' />
+                <Title>Free Delivery</Title>
+                <SubTitle>Lorem ipsum dolor sit amet, consectetur adipi elit. ipsum dolor sit amet.</SubTitle>
             </div>
             <div>
-                <img src={escudo} width='40px' height='40px' />
-                <h1>100% secure payment</h1>
-                <h2>Lorem ipsum dolor sit amet, consectetur adipi elit. ipsum dolor sit amet.</h2>
+                <img src={escudo} width='35px' height='35px' />
+                <Title>100% secure payment</Title>
+                <SubTitle>Lorem ipsum dolor sit amet, consectetur adipi elit. ipsum dolor sit amet.</SubTitle>
             </div>
             <div>
-                <img src={medalha} width='40px' height='40px' />
-                <h1>Quality guarantee</h1>
-                <h2>Lorem ipsum dolor sit amet, consectetur adipi elit. ipsum dolor sit amet.</h2>
+                <img src={medalha} width='35px' height='35px' />
+                <Title>Quality guarantee</Title>
+                <SubTitle>Lorem ipsum dolor sit amet, consectetur adipi elit. ipsum dolor sit amet.</SubTitle>
             </div>
             <div>
-                <img src={cifrao} width='36px' height='36px' />
-                <h1>guaranteed savings</h1>
-                <h2>Lorem ipsum dolor sit amet, consectetur adipi elit. ipsum dolor sit amet.</h2>
+                <img src={cifrao} width='35px' height='35px' />
+                <Title>guaranteed savings</Title>
+                <SubTitle>Lorem ipsum dolor sit amet, consectetur adipi elit. ipsum dolor sit amet.</SubTitle>
             </div>
         </Box>
     )
