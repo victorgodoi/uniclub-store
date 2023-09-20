@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import Content from "./Content";
 import Card from "./Card";
+import Button from "./Button";
 
 const Box = styled(Content)`
     > div{
@@ -15,7 +16,7 @@ const DivTitle = styled.div`
     margin-bottom: 50px;
 `
 
-const Title = styled.a`
+const Title = styled.p`
     color: #222;
     font-size: 36px;
     font-weight: 300;
@@ -42,22 +43,6 @@ const BoxButton = styled.div`
     //tirar depois 
     margin-bottom: 200px;
 
-`
-
-const Button = styled.button`
-    width: 288px;
-    height: 69px;
-    flex-shrink: 0;
-    border-radius: 10px;
-    background: #000;
-    color: #FFF;
-    text-align: center;
-    font-family: Jost;
-    font-size: 16px;
-    font-weight: 600;
-    line-height: 225%;
-    letter-spacing: 0.96px;
-    text-transform: uppercase;
 `
 
 const Component = () => {

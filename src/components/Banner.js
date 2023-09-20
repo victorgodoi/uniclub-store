@@ -46,11 +46,7 @@ const Button = styled.button`
     border: 2px solid #FFF;
     background-color: black;
     color: #FFF;
-    font-family: Josefin Sans;
     font-size: 15px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 80%;
     letter-spacing: 1.5px;
     text-transform: uppercase;
     display: flex;
@@ -59,10 +55,22 @@ const Button = styled.button`
     align-items: center;
     justify-content: center;
     margin-top: 50px;
+    transition: all 0.5s;
+
+    &:hover {
+        cursor: pointer;
+        color: #000;
+        background-color: #FFF;
+
+        img{
+            filter: invert(1);
+        }
+    }
 
     img {
-        width: 22.004px;
-        height: 19.968px;
+        width: 22px;
+        height: 19px;
+        transition: all 0.5s;
     }
 
 `

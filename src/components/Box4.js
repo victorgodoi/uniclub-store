@@ -11,40 +11,32 @@ const TopBox = styled.div`
 
 const Box = styled.div`
     max-width: 1710px;
+    width: 95%;
     display: flex;
     justify-content: center;
     gap: 60px;
-    margin-bottom: 100px;
+    margin-bottom: 70px;
 `
 
-const DivBanner02 = styled.div`
+const DivBanner = styled.div`
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    height: 200px;
+    flex: 1;
+
+`
+
+const DivBanner02 = styled(DivBanner)`
     background-image: url(${Banner02});
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
-    height: 200px;
-    width: 530px;
-
 `
 
-const DivBanner03 = styled.div`
+const DivBanner03 = styled(DivBanner)`
     background-image: url(${Banner03});
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
-    height: 200px;
-    width: 530px;
-
 `
 
-const DivBanner04 = styled.div`
+const DivBanner04 = styled(DivBanner)`
     background-image: url(${Banner04});
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
-    height: 200px;
-    width: 530px;
-
 `
 
 const Text = styled.p`
