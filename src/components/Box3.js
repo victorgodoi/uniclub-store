@@ -2,6 +2,8 @@ import styled from "styled-components";
 import Content from "./Content";
 import Card from "./Card";
 import Button from "./Button";
+import { useEffect, useState } from "react";
+
 
 const Box = styled(Content)`
     > div{
@@ -46,6 +48,30 @@ const BoxButton = styled.div`
 `
 
 const Component = () => {
+
+    const [produtos, atualizarProdutos] = useState([])
+
+    const fetchData = async () => {
+        try {
+            const resultado = await fetch('https://mabkxpvmoabhozufruai.supabase.co/rest/v1/uniclub', {
+                headers: {
+                    'apikey': process.env.REACT_APP_APIKEY,
+                    'Authorization': `Bearer ${process.env.REACT_APP_SECRET}`
+                }
+            })
+            const resposta = await resultado.json()
+            atualizarProdutos(resposta)
+
+
+        } catch (erro) {
+            console.log(erro)
+        }
+    }
+
+    useEffect(() => {
+        fetchData()
+    }, [])
+
     return (
         <Box>
             <DivTitle>
@@ -53,9 +79,9 @@ const Component = () => {
                 <Line />
             </DivTitle>
             <BoxCard>
-                {[...Array(8).keys()].map(item => {
+                {produtos.map(produto => {
                     return (
-                        <Card />
+                        <Card key={produto.id} text={produto.title} preco={produto.price} img={produto.image} />
                     )
                 })}
             </BoxCard>

@@ -9,8 +9,6 @@ const DivBox = styled.div`
     background-size: cover;
     height: 500px;
     width: 100%;
-    //tirar depois
-    margin-bottom: 100px;
     display: flex;
     align-items: center;
     justify-content: center;

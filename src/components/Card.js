@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import Camiseta01 from '../images/camiseta01.png';
 
 const Box = styled.div`
     max-width: 295px;
@@ -21,13 +20,13 @@ const Number = styled.p`
     text-transform: capitalize;
 `
 
-const Component = () => {
+const Component = ({ text, preco, img }) => {
     return (
         <Box>
-            <img src={Camiseta01} />
+            <img src={img} />
             <MiniBox>
-                <Text>Seven Zero Five</Text>
-                <Number>$30.00</Number>
+                <Text>{text}</Text>
+                <Number>R${preco.toString().replace('.', ',')}</Number>
             </MiniBox>
         </Box>
     )
