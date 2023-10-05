@@ -3,6 +3,9 @@ import Content from "./Content";
 import Card from "./Card";
 import Button from "./Button";
 import { useEffect, useState } from "react";
+import { createClient } from "@supabase/supabase-js";
+
+const supabase = createClient("https://mabkxpvmoabhozufruai.supabase.co", process.env.REACT_APP_SECRET);
 
 
 const Box = styled(Content)`
@@ -51,25 +54,13 @@ const Component = () => {
 
     const [produtos, atualizarProdutos] = useState([])
 
-    const fetchData = async () => {
-        try {
-            const resultado = await fetch('https://mabkxpvmoabhozufruai.supabase.co/rest/v1/uniclub', {
-                headers: {
-                    'apikey': process.env.REACT_APP_APIKEY,
-                    'Authorization': `Bearer ${process.env.REACT_APP_SECRET}`
-                }
-            })
-            const resposta = await resultado.json()
-            atualizarProdutos(resposta)
-
-
-        } catch (erro) {
-            console.log(erro)
-        }
+    const getData = async ({ quantidade }) => {
+        const { data } = await supabase.from("uniclub").select().limit(quantidade);
+        atualizarProdutos(data);
     }
 
     useEffect(() => {
-        fetchData()
+        getData({ quantidade: 8 })
     }, [])
 
     return (
@@ -86,7 +77,7 @@ const Component = () => {
                 })}
             </BoxCard>
             <BoxButton>
-                <Button>View all products</Button>
+                <Button onClick={() => getData({ quantidade: null })}>View all products</Button>
             </BoxButton>
         </Box>
 
