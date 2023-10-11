@@ -79,7 +79,6 @@ const Component = () => {
     return (
         <div>
             <img src={imgBanner} width='100%' height='auto' />
-            <Header />
             <Box>
                 <h1>Street wears</h1>
                 <h2>High quality cool tshirts for street fashion</h2>

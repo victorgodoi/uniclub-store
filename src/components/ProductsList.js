@@ -4,6 +4,8 @@ import Card from "./Card";
 import Button from "./Button";
 import { useEffect, useState } from "react";
 import { createClient } from "@supabase/supabase-js";
+import { useNavigate, useMatch } from "react-router-dom"
+
 
 const supabase = createClient("https://mabkxpvmoabhozufruai.supabase.co", process.env.REACT_APP_SECRET);
 
@@ -53,6 +55,8 @@ const BoxButton = styled.div`
 const Component = () => {
 
     const [produtos, atualizarProdutos] = useState([])
+    const navigate = useNavigate()
+    const isMainRoute = useMatch("/");
 
     const getData = async ({ quantidade }) => {
         const { data } = await supabase.from("uniclub").select().limit(quantidade);
@@ -60,13 +64,19 @@ const Component = () => {
     }
 
     useEffect(() => {
-        getData({ quantidade: 8 })
-    }, [])
+        if (isMainRoute) {
+            getData({ quantidade: 8 })
+        } else {
+            getData({ quantidade: null })
+        }
+    }, [isMainRoute])
 
     return (
         <Box>
             <DivTitle>
-                <Title>new arrivals</Title>
+                <Title>{isMainRoute ? 'new arrivals' : 'Products'}</Title>
+
+
                 <Line />
             </DivTitle>
             <BoxCard>
@@ -76,9 +86,11 @@ const Component = () => {
                     )
                 })}
             </BoxCard>
-            <BoxButton>
-                <Button onClick={() => getData({ quantidade: null })}>View all products</Button>
-            </BoxButton>
+            {isMainRoute && (
+                <BoxButton>
+                    <Button onClick={() => navigate('/products')}>View all products</Button>
+                </BoxButton>
+            )}
         </Box>
 
     )
