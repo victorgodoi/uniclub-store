@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Skeleton } from '@chakra-ui/react'
 
 const Box = styled.div`
     max-width: 295px;
@@ -20,16 +21,29 @@ const Number = styled.p`
     text-transform: capitalize;
 `
 
-const Component = ({ text, preco, img }) => {
-    return (
-        <Box>
-            <img src={img} />
-            <MiniBox>
-                <Text>{text}</Text>
-                <Number>R${preco.toString().replace('.', ',')}</Number>
-            </MiniBox>
-        </Box>
-    )
+const Component = ({ text, preco, img, loading }) => {
+
+    if (loading) {
+        return (
+            <Box>
+                <Skeleton height='440px' width='290px' />
+                <MiniBox>
+                    <Skeleton height='31px' width='60%' />
+                    <Skeleton height='31px' width='20%' />
+                </MiniBox>
+            </Box>
+        )
+    } else {
+        return (
+            <Box>
+                <img src={img} />
+                <MiniBox>
+                    <Text>{text}</Text>
+                    <Number>R${preco?.toString()?.replace('.', ',')}</Number>
+                </MiniBox>
+            </Box>
+        )
+    }
 }
 
 export default Component

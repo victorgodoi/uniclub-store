@@ -1,19 +1,19 @@
 import styled from 'styled-components'
 import ProductsList from '../components/ProductsList'
 
-const Conteiner = styled.div`
-    margin-top: 250px;
-    margin-bottom: 200px;
 
+const Container = styled.div`
+    padding-top: 250px;
+    padding-bottom: 200px;
 `
 
 
 
 function Products() {
     return (
-        <Conteiner>
+        <Container>
             <ProductsList />
-        </Conteiner>
+        </Container>
     )
 }
 

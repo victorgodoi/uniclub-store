@@ -6,7 +6,7 @@ import iconButton from '../images/iconButton.svg'
 const Box = styled.div`
     background-color: black;
     position: absolute;
-    top: 30%;
+    top: 5%;
     left: 15%;
     width: 562px;
     height: 453px;

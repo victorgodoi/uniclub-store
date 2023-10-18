@@ -7,6 +7,7 @@ import { createClient } from "@supabase/supabase-js";
 import { useNavigate, useMatch } from "react-router-dom"
 
 
+
 const supabase = createClient("https://mabkxpvmoabhozufruai.supabase.co", process.env.REACT_APP_SECRET);
 
 
@@ -75,11 +76,12 @@ const Component = () => {
         <Box>
             <DivTitle>
                 <Title>{isMainRoute ? 'new arrivals' : 'Products'}</Title>
-
-
                 <Line />
             </DivTitle>
             <BoxCard>
+                {/* array para popular os cards de loading */}
+                {produtos.length === 0 && [...Array(10).keys()].map(() => <Card loading={true}></Card>)}
+                {/* array populando os cards com os dados dos produtos */}
                 {produtos.map(produto => {
                     return (
                         <Card key={produto.id} text={produto.title} preco={produto.price} img={produto.image} />
