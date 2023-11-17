@@ -80,9 +80,9 @@ const Component = () => {
             </DivTitle>
             <BoxCard>
                 {/* array para popular os cards de loading */}
-                {produtos.length === 0 && [...Array(10).keys()].map(() => <Card loading={true}></Card>)}
+                {produtos?.length === 0 && [...Array(10).keys()].map(() => <Card loading={true}></Card>)}
                 {/* array populando os cards com os dados dos produtos */}
-                {produtos.map(produto => {
+                {produtos?.map(produto => {
                     return (
                         <Card key={produto.id} text={produto.title} preco={produto.price} img={produto.image} />
                     )
